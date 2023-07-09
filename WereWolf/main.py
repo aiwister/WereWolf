@@ -20,11 +20,12 @@ class WereWolf:
                 role=i[1]
                 num=self.num_role[i[0]]
                 for j in range(num):
+                    rp=random.choice(self.players)
                     if not role in self.players_role:
-                        self.players_role[role]=[random.choice(self.players)]
+                        self.players_role[role]=[rp]
                     else:
-                        self.players_role[role].append(random.choice(self.players))
-                    self.players.remove(self.players_role[role][-1])
+                        self.players_role[role].append(rp)
+                    self.players.remove(rp)
 
 werewolf=WereWolf(["a","b","c","d","e","f","g"],[2,1,1,1,1,1])
 print(werewolf.players_role)
